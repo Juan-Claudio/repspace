@@ -1,0 +1,72 @@
+[
+    {
+        "info":"If key:'' do not change, keep the previous value"
+    },
+
+    {
+        "controls":["left","right","top","bottom"],
+        "coorSystem":"letters-digits",
+        "defaultTile":["#000","#999"],
+        "hero":["hero", [1,1,"right"]],
+        "end":[10,1],
+        "collisionMap":{
+            "0":["1:10"],
+            "1":["0","11"],
+            "2":["0","11"],
+            "3":["1:10"]
+        },
+        "drawingMap":{
+            "simpleSquare;#aaf,#99f":{"1":["1:9"], "2":["1:10"]},
+            "simpleSquare;#00f":{"1":["10"]}
+        }
+    },
+
+    {
+        "controls":"",
+        "coorSystem":"",
+        "defaultTile":["#000","#999"],
+        "hero":["hero", [1,1,"right"]],
+        "end":[9,1],
+        "collisionMap":{
+            "0":["1:9"],
+            "1":["0","2","6","10"],
+            "2":["0","4","8","9"],
+            "3":["1:7"]
+        },
+        "drawingMap":{
+            "simpleSquare;#aaf,#99f":{"1":["1","3:5","7","8"], "2":["1:9"]},
+            "simpleSquare;#00f":{"1":["9"]}
+        }
+    },
+
+    {
+        "controls":"",
+        "coorSystem":"",
+        "defaultTile":"",
+        "hero":["hero", [3,7,"right"]],
+        "end":[5,7],
+        "collisionMap":{
+            "4":["5:7"],
+            "5":["4","8"],
+            "6":["3","4","6","8"],
+            "7":["2","4","6","8"],
+            "8":["2","4:6","8"],
+            "9":["2","4:6","8"],
+            "10":["2","8"],
+            "11":["3:7"]
+        },
+        "drawingMap":{
+            "simpleSquare;#aaf,#99f": {
+                "5":["5:7"],
+                "6":["5","7"],
+                "7":["3","7"],
+                "8":["3","7"],
+                "9":["3","7"],
+                "10":["3:7"]
+            },
+            "simpleSquare;#00f":{
+                "7":["5"]
+            }
+        }
+    }
+]
