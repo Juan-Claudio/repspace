@@ -1,0 +1,6 @@
+@import 'mixins';
+
+.MovesView-container
+{
+    @include bar-container(#faa);
+}

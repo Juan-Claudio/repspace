@@ -1,0 +1,32 @@
+@import 'mixins';
+@import 'vars';
+
+.Controls-container
+{
+    @include bar-container(#aaf);
+}
+
+.Controls-btn
+{
+    cursor: pointer;
+
+    @include if-landscape
+    {
+        margin: {
+            top: $bar-btn-intern-margin;
+            bottom: $bar-btn-intern-margin;
+        }
+    }
+    @include if-portrait
+    {
+        margin: {
+            left: $bar-btn-intern-margin;
+            right: $bar-btn-intern-margin;
+        }
+    }
+}
+
+.Controls-level_info
+{
+    text-align: center;
+}

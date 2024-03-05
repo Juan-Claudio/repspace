@@ -1,0 +1,59 @@
+@import 'vars';
+
+
+@mixin if-landscape
+{
+    @media (orientation: landscape)
+    {
+        @content;
+    }
+}
+@mixin if-portrait
+{
+    @media (orientation: portrait)
+    {
+        @content;
+    }
+}
+
+@mixin bar-container($backclr)
+{
+    background-color: $backclr;
+    border-radius: $bar-radius;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    @media (orientation: landscape)
+    {
+        flex-direction: column;
+        
+        margin: {
+            left: $bar-extern-margin;
+            right: $bar-extern-margin;
+            top: $bar-intern-margin;
+            bottom: $bar-intern-margin;
+        }
+        
+        width: $bar-smaller-size;
+        height: calc(100vh - $bar-extern-margin*2);
+    }
+
+    @media (orientation: portrait)
+    {
+        flex-direction: row;
+
+        margin: {
+            left: $bar-intern-margin;
+            right: $bar-intern-margin;
+            top: $bar-extern-margin;
+            bottom: $bar-extern-margin;
+        }
+        
+        width: calc(100vw - $bar-extern-margin*2);
+        height: $bar-smaller-size;
+    }
+}
+

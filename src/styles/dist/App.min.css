@@ -1,0 +1,1 @@
+.App{display:flex}@media(orientation: landscape){.App{flex-direction:row;justify-content:space-around;align-items:center}}@media(orientation: portrait){.App{flex-direction:column;justify-content:center;align-items:space-around}}

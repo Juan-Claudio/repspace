@@ -1,0 +1,50 @@
+.Controls-container {
+  background-color: #aaf;
+  border-radius: 5px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+@media (orientation: landscape) {
+  .Controls-container {
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 40px;
+    height: calc(100vh - 20px);
+  }
+}
+@media (orientation: portrait) {
+  .Controls-container {
+    flex-direction: row;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: calc(100vw - 20px);
+    height: 40px;
+  }
+}
+
+.Controls-btn {
+  cursor: pointer;
+}
+@media (orientation: landscape) {
+  .Controls-btn {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+}
+@media (orientation: portrait) {
+  .Controls-btn {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+
+.Controls-level_info {
+  text-align: center;
+}
