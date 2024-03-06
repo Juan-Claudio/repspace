@@ -5,6 +5,8 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  overflow: auto;
+  margin: auto;
 }
 @media (orientation: landscape) {
   .Controls-container {
@@ -34,12 +36,19 @@
 }
 @media (orientation: portrait) {
   .Controls-container > p {
-    margin-left: 5px;
+    margin-left: 8px;
+    margin-right: 8px;
   }
 }
 
 .Controls-btn {
   cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px rgba(0, 0, 0, 0.3) solid;
+  border-top: none;
+  border-left: none;
+  border-radius: 5px;
+  padding: 8px;
 }
 @media (orientation: landscape) {
   .Controls-btn {
@@ -52,6 +61,14 @@
     margin-left: 5px;
     margin-right: 5px;
   }
+}
+.Controls-btn:hover {
+  border: 2px rgba(0, 0, 0, 0.3) solid;
+  border-bottom: none;
+  border-right: none;
+}
+.Controls-btn:focus {
+  background-color: rgba(255, 255, 255, 0.45);
 }
 
 .Controls-level_info {

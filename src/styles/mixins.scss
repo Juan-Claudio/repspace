@@ -26,6 +26,8 @@
     justify-content: flex-start;
     align-items: center;
 
+    overflow: auto;
+
     @media (orientation: landscape)
     {
         flex-direction: column;        

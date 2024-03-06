@@ -1,4 +1,4 @@
-export default class Run
+export default class Game
 {
     static nameToSymbol = {
         start:"start",
@@ -73,5 +73,17 @@ export default class Run
             return true
         }
         return false
+    }
+
+    static displayInstructions()
+    {
+        let mess = "Objective:\nGuide the oriented circle to the dark blue "
+        mess += "cell without collision by creating a program of moves using arrows.\n\n"
+        mess += "Tips:\n"
+        mess += "- Plan your sequence of moves carefully to navigate around obstacles "
+        mess += "and reach the dark blue cell efficiently.\n"
+        mess += "- Pay attention to the orientation of the arrows to ensure the oriented circle moves in the intended direction."
+
+        alert(mess)
     }
 }

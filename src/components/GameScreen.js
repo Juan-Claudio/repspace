@@ -37,7 +37,8 @@ export default class GameScreen extends React.Component
     {
         return (
             <div className="GameScreen-container">
-                <canvas id="gameScreen" width="832" height="448"></canvas>
+                <p>Your screen is too small to play this game sorry.</p>
+                <canvas id="gameScreen" width="864" height="448"></canvas>
             </div>
         )
     }

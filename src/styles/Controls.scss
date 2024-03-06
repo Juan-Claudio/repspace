@@ -11,6 +11,7 @@
             top:10px;
         }
     }
+    margin:auto;
 }
 
 .Controls-container > p
@@ -18,7 +19,8 @@
     margin:0;
     @include if-portrait
     {
-        margin-left:5px;
+        margin-left:8px;
+        margin-right:8px;
     }
 }
 
@@ -40,6 +42,23 @@
             right: $bar-btn-intern-margin;
         }
     }
+    background-color: rgba(255,255,255,0.2);
+    border: 2px rgba(0,0,0,0.3) solid;
+    border: {
+        top:none; left:none;
+    }
+    border-radius: 5px;
+    padding: 8px;
+
+    &:hover
+    {
+        border: 2px rgba(0,0,0,0.3) solid;
+        border: {
+            bottom:none; right:none;
+        }
+    }
+
+    &:focus{ background-color: rgba(255,255,255,0.45); }
 }
 
 .Controls-level_info

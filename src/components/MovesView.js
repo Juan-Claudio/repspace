@@ -1,6 +1,6 @@
 import React from "react";
 import '../styles/dist/MovesView.min.css'
-import Run from "../utils/Run";
+import Run from "../utils/Game";
 
 export default class MovesView extends React.Component
 {

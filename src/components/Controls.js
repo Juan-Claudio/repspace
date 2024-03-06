@@ -1,6 +1,6 @@
 import React from "react";
 import '../styles/dist/Controls.min.css'
-import Run from "../utils/Run";
+import Game from "../utils/Game";
 
 export default class Controls extends React.Component
 {    
@@ -58,32 +58,27 @@ export default class Controls extends React.Component
         const movesInterval = setInterval(()=>{
             
             //4)convert move to next position
-            const nextPosition = Run.nextPosition(moves[i], this.props.currPosition)
-            const nextOrientation = Run.nextOrientation(moves[i], this.props.currOrientation)
-            console.log('next position/or', nextPosition, nextOrientation)
+            const nextPosition = Game.nextPosition(moves[i], this.props.currPosition)
+            const nextOrientation = Game.nextOrientation(moves[i], this.props.currOrientation)
             //5)Is next position collision?
             //all x which is collision in y coor of hero position
             const yCollisionsInRow = this.props.collisionMap[nextPosition[1]]
             //loops through y_i
             for(let x of yCollisionsInRow)
             {
-                if(Run.isInto(x, nextPosition[0]))
+                if(Game.isInto(x, nextPosition[0]))
                 {
-                    console.log('collision!')
                     endMoves(COLLISION, movesInterval)
                     return;
                 }
             }
-            console.log('no collision')
 
             //6)change curr position and redraw
             this.props.moveHero(nextPosition, nextOrientation)
-            console.log('change curr pos')
 
             //7)is last move of moves array?
             if(i===lastIdx)
             {
-                console.log('last move')
                 //is hero on destination cell
                 if( nextPosition[0]===this.props.endPosition[0] &&
                     nextPosition[1]===this.props.endPosition[1]
@@ -99,8 +94,7 @@ export default class Controls extends React.Component
     {
         switch(btnId)
         {
-            case 'start':
-                this.runMoves();break;
+            case 'start': this.runMoves();break;
             case 'move': this.props.addMove('move');break;
             case 'left': this.props.addMove('left');break;
             case 'right': this.props.addMove('right');break;
@@ -110,7 +104,8 @@ export default class Controls extends React.Component
             case 'turnRight': this.props.addMove('turnRight');break;
             case 'removeAll': this.props.removeAllMoves();break;
             case 'remove1': this.props.popMove();break;
-            default: console.log("unknown btn");break;
+            case 'menu': Game.displayInstructions();break;
+            default: console.warn("unknown btn");break;
         }
     }
     
@@ -123,6 +118,7 @@ export default class Controls extends React.Component
                 ()=>{ this.handleClick(btn.id.replace('control_','')) }
             )
         })
+        Game.displayInstructions()
     }
 
     componentWillUnmount()
@@ -152,7 +148,7 @@ export default class Controls extends React.Component
                             <button key={idx} id={"control_"+name} 
                                 className="Controls-btn" title={name}
                             >
-                                {Run.nameToSymbol[name]}
+                                {Game.nameToSymbol[name]}
                             </button>
                         )
                     })
