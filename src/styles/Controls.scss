@@ -4,6 +4,22 @@
 .Controls-container
 {
     @include bar-container(#aaf);
+    @include if-landscape
+    {
+        padding: {
+            bottom:10px;
+            top:10px;
+        }
+    }
+}
+
+.Controls-container > p
+{
+    margin:0;
+    @include if-portrait
+    {
+        margin-left:5px;
+    }
 }
 
 .Controls-btn

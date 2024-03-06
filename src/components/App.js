@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/dist/App.min.css';
 import Controls from '../containers/Controls';
-import GameScreen from './GameScreen';
+import GameScreen from '../containers/GameScreen';
 import MovesView from '../containers/MovesView';
 import { Provider } from 'react-redux';
 import { store } from '../store/configureStore';
@@ -19,8 +19,10 @@ class App extends React.Component
          <Provider store={store}>
             <div className="App">
                <GameScreen />
-               <Controls />
-               <MovesView />
+               <div className='App-bar_container'>
+                  <Controls />
+                  <MovesView />
+               </div>
             </div>
          </Provider>
       );

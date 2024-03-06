@@ -1,5 +1,6 @@
 import React from "react";
 import '../styles/dist/MovesView.min.css'
+import Run from "../utils/Run";
 
 export default class MovesView extends React.Component
 {
@@ -23,11 +24,11 @@ export default class MovesView extends React.Component
                 {moveCounter.map((move, idx)=>{
                     if(move[1] === 1)
                     {
-                        return (<p key={idx} className="MovesView-move">{move[0]}</p>)
+                        return (<p key={idx} className="MovesView-move">{Run.nameToSymbol[move[0]]}</p>)
                     }
                     else
                     {
-                        return (<p key={idx} className="MovesView-move">{move[0]}<sup>{move[1]}</sup></p>)
+                        return (<p key={idx} className="MovesView-move">{Run.nameToSymbol[move[0]]}<sup>{move[1]}</sup></p>)
                     }
                 })}
             </div>

@@ -1,4 +1,344 @@
+.GameScreen-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
 #gameScreen {
+  background-color: #aaa;
+  margin: 0;
   max-width: 832px;
   max-height: 448px;
+}
+
+@media (orientation: landscape) {
+  .GameScreen-container {
+    width: calc(100vw - 120px);
+    height: 100vh;
+  }
+}
+@media (orientation: landscape) and (min-width: 344px) {
+  #gameScreen {
+    width: 224px;
+  }
+}
+@media (orientation: landscape) and (min-width: 376px) {
+  #gameScreen {
+    width: 256px;
+  }
+}
+@media (orientation: landscape) and (min-width: 408px) {
+  #gameScreen {
+    width: 288px;
+  }
+}
+@media (orientation: landscape) and (min-width: 440px) {
+  #gameScreen {
+    width: 320px;
+  }
+}
+@media (orientation: landscape) and (min-width: 472px) {
+  #gameScreen {
+    width: 352px;
+  }
+}
+@media (orientation: landscape) and (min-width: 504px) {
+  #gameScreen {
+    width: 384px;
+  }
+}
+@media (orientation: landscape) and (min-width: 536px) {
+  #gameScreen {
+    width: 416px;
+  }
+}
+@media (orientation: landscape) and (min-width: 568px) {
+  #gameScreen {
+    width: 448px;
+  }
+}
+@media (orientation: landscape) and (min-width: 600px) {
+  #gameScreen {
+    width: 480px;
+  }
+}
+@media (orientation: landscape) and (min-width: 632px) {
+  #gameScreen {
+    width: 512px;
+  }
+}
+@media (orientation: landscape) and (min-width: 664px) {
+  #gameScreen {
+    width: 544px;
+  }
+}
+@media (orientation: landscape) and (min-width: 696px) {
+  #gameScreen {
+    width: 576px;
+  }
+}
+@media (orientation: landscape) and (min-width: 728px) {
+  #gameScreen {
+    width: 608px;
+  }
+}
+@media (orientation: landscape) and (min-width: 760px) {
+  #gameScreen {
+    width: 640px;
+  }
+}
+@media (orientation: landscape) and (min-width: 792px) {
+  #gameScreen {
+    width: 672px;
+  }
+}
+@media (orientation: landscape) and (min-width: 824px) {
+  #gameScreen {
+    width: 704px;
+  }
+}
+@media (orientation: landscape) and (min-width: 856px) {
+  #gameScreen {
+    width: 736px;
+  }
+}
+@media (orientation: landscape) and (min-width: 888px) {
+  #gameScreen {
+    width: 768px;
+  }
+}
+@media (orientation: landscape) and (min-width: 920px) {
+  #gameScreen {
+    width: 800px;
+  }
+}
+@media (orientation: landscape) and (min-width: 952px) {
+  #gameScreen {
+    width: 832px;
+  }
+}
+@media (orientation: landscape) and (min-height: 128px) {
+  #gameScreen {
+    height: 128px;
+  }
+}
+@media (orientation: landscape) and (min-height: 160px) {
+  #gameScreen {
+    height: 160px;
+  }
+}
+@media (orientation: landscape) and (min-height: 192px) {
+  #gameScreen {
+    height: 192px;
+  }
+}
+@media (orientation: landscape) and (min-height: 224px) {
+  #gameScreen {
+    height: 224px;
+  }
+}
+@media (orientation: landscape) and (min-height: 256px) {
+  #gameScreen {
+    height: 256px;
+  }
+}
+@media (orientation: landscape) and (min-height: 288px) {
+  #gameScreen {
+    height: 288px;
+  }
+}
+@media (orientation: landscape) and (min-height: 320px) {
+  #gameScreen {
+    height: 320px;
+  }
+}
+@media (orientation: landscape) and (min-height: 352px) {
+  #gameScreen {
+    height: 352px;
+  }
+}
+@media (orientation: landscape) and (min-height: 384px) {
+  #gameScreen {
+    height: 384px;
+  }
+}
+@media (orientation: landscape) and (min-height: 416px) {
+  #gameScreen {
+    height: 416px;
+  }
+}
+@media (orientation: landscape) and (min-height: 448px) {
+  #gameScreen {
+    height: 448px;
+  }
+}
+@media (orientation: landscape) {
+  @media (max-height: 127px) or (max-width: 343px) {
+    #gameScreen {
+      display: none;
+    }
+  }
+}
+@media (orientation: portrait) {
+  .GameScreen-container {
+    width: 100vw;
+    height: calc(100vh - 120px);
+  }
+}
+@media (orientation: portrait) and (min-width: 224px) {
+  #gameScreen {
+    width: 224px;
+  }
+}
+@media (orientation: portrait) and (min-width: 256px) {
+  #gameScreen {
+    width: 256px;
+  }
+}
+@media (orientation: portrait) and (min-width: 288px) {
+  #gameScreen {
+    width: 288px;
+  }
+}
+@media (orientation: portrait) and (min-width: 320px) {
+  #gameScreen {
+    width: 320px;
+  }
+}
+@media (orientation: portrait) and (min-width: 352px) {
+  #gameScreen {
+    width: 352px;
+  }
+}
+@media (orientation: portrait) and (min-width: 384px) {
+  #gameScreen {
+    width: 384px;
+  }
+}
+@media (orientation: portrait) and (min-width: 416px) {
+  #gameScreen {
+    width: 416px;
+  }
+}
+@media (orientation: portrait) and (min-width: 448px) {
+  #gameScreen {
+    width: 448px;
+  }
+}
+@media (orientation: portrait) and (min-width: 480px) {
+  #gameScreen {
+    width: 480px;
+  }
+}
+@media (orientation: portrait) and (min-width: 512px) {
+  #gameScreen {
+    width: 512px;
+  }
+}
+@media (orientation: portrait) and (min-width: 544px) {
+  #gameScreen {
+    width: 544px;
+  }
+}
+@media (orientation: portrait) and (min-width: 576px) {
+  #gameScreen {
+    width: 576px;
+  }
+}
+@media (orientation: portrait) and (min-width: 608px) {
+  #gameScreen {
+    width: 608px;
+  }
+}
+@media (orientation: portrait) and (min-width: 640px) {
+  #gameScreen {
+    width: 640px;
+  }
+}
+@media (orientation: portrait) and (min-width: 672px) {
+  #gameScreen {
+    width: 672px;
+  }
+}
+@media (orientation: portrait) and (min-width: 704px) {
+  #gameScreen {
+    width: 704px;
+  }
+}
+@media (orientation: portrait) and (min-width: 736px) {
+  #gameScreen {
+    width: 736px;
+  }
+}
+@media (orientation: portrait) and (min-width: 768px) {
+  #gameScreen {
+    width: 768px;
+  }
+}
+@media (orientation: portrait) and (min-width: 800px) {
+  #gameScreen {
+    width: 800px;
+  }
+}
+@media (orientation: portrait) and (min-width: 832px) {
+  #gameScreen {
+    width: 832px;
+  }
+}
+@media (orientation: portrait) and (min-height: 248px) {
+  #gameScreen {
+    height: 128px;
+  }
+}
+@media (orientation: portrait) and (min-height: 280px) {
+  #gameScreen {
+    height: 160px;
+  }
+}
+@media (orientation: portrait) and (min-height: 312px) {
+  #gameScreen {
+    height: 192px;
+  }
+}
+@media (orientation: portrait) and (min-height: 344px) {
+  #gameScreen {
+    height: 224px;
+  }
+}
+@media (orientation: portrait) and (min-height: 376px) {
+  #gameScreen {
+    height: 256px;
+  }
+}
+@media (orientation: portrait) and (min-height: 408px) {
+  #gameScreen {
+    height: 288px;
+  }
+}
+@media (orientation: portrait) and (min-height: 440px) {
+  #gameScreen {
+    height: 320px;
+  }
+}
+@media (orientation: portrait) and (min-height: 472px) {
+  #gameScreen {
+    height: 352px;
+  }
+}
+@media (orientation: portrait) and (min-height: 504px) {
+  #gameScreen {
+    height: 384px;
+  }
+}
+@media (orientation: portrait) and (min-height: 536px) {
+  #gameScreen {
+    height: 416px;
+  }
+}
+@media (orientation: portrait) and (min-height: 568px) {
+  #gameScreen {
+    height: 448px;
+  }
 }

@@ -1,19 +1,56 @@
+@import 'vars';
+.GameScreen-container
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin:0;padding:0;
+}
 #gameScreen
 {
-    max-width: 832px;
+    background-color: #aaa;
+	margin:0;
+	max-width: 832px;
     max-height: 448px;
 }
+
 @media (orientation: landscape)
 {
-	#gameScreen
+	.GameScreen-container{ width: calc(100vw - $bar-container-size); height:100vh; }
+	@for $i from 0 to 20
 	{
-		
+		@media (min-width: (($i*32)+344px))
+		{
+			#gameScreen{ width: (($i*32)+224px) }
+		}
+	}
+	@for $i from 0 to 11
+	{
+		@media (min-height: (($i*32)+128px))
+		{
+			#gameScreen{ height: (($i*32)+128px) }
+		}
+	}
+	@media (max-height: 127px) or (max-width: 343px)
+	{
+		#gameScreen{display:none}
 	}
 }
 @media (orientation: portrait)
 {
-	#gameScreen
+	.GameScreen-container{ width:100vw; height: calc(100vh - $bar-container-size); }
+	@for $i from 0 to 20
 	{
-		
+		@media (min-width: (($i*32)+224px))
+		{
+			#gameScreen{ width: (($i*32)+224px) }
+		}
+	}
+	@for $i from 0 to 11
+	{
+		@media (min-height: (($i*32)+248px))
+		{
+			#gameScreen{ height: (($i*32)+128px) }
+		}
 	}
 }

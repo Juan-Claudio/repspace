@@ -1,14 +1,15 @@
+@import 'vars';
 .App
 {
 	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 @media (orientation: landscape)
 {
 	.App
 	{
 		flex-direction: row;
-		justify-content: space-around;
-		align-items: center;
 	}
 }
 @media (orientation: portrait)
@@ -16,7 +17,31 @@
 	.App
 	{
 		flex-direction: column;
-		justify-content: center;
-		align-items: space-around;
+	}
+}
+
+
+.App-bar_container
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin:0; padding:5px;
+}
+@media (orientation: landscape)
+{
+	.App-bar_container
+	{
+		flex-direction: row;
+		justify-content: space-around;
+		width:$bar-container-size;
+	}
+}
+@media (orientation: portrait)
+{
+	.App-bar_container
+	{
+		flex-direction: column;
+		height:$bar-container-size;
 	}
 }

@@ -9,12 +9,18 @@ export default class Draw
     //game zone size in px
     #width_px = 0
     #height_px = 0
+    //to display map if canvas to small
+    //change origin using keys
+    #origin = [0,0]
 
-    constructor(canvasId, unit=32, width=26, height=14)
+    constructor(canvasId='', unit=32, width=26, height=14)
     {
         if(width>52) width=52
-        this.#canvas = document.getElementById(canvasId)
-        this.#ctx = this.#canvas.getContext('2d');
+        if(canvasId!=='')
+        {
+            this.#canvas = document.getElementById(canvasId)
+            this.#updateCtx()
+        }
         this.#unit = unit
         this.#width_u = width
         this.#height_u = height
@@ -25,11 +31,22 @@ export default class Draw
     setUnit(newUnit){ this.#unit = newUnit; this.#updateSizesPx() }
     setWidth(newWidth){ this.#width_u = newWidth; this.#updateSizesPx('w') }
     setHeight(newHeight){ this.#height_u = newHeight; this.#updateSizesPx('h') }
+    setCanvas(canvas)
+    {
+        this.#canvas = canvas
+        this.#updateCtx()
+    }
+    setCanvasById(canvasId)
+    {
+        this.#canvas = document.getElementById(canvasId)
+        this.#updateCtx()
+    }
     #updateSizesPx(sizes='all')
     {
         if(['all','w'].includes(sizes))this.#width_px = this.#width_u * this.#unit
         if(['all','h'].includes(sizes))this.#height_px = this.#height_u * this.#unit
     }
+    #updateCtx(){ this.#ctx = this.#canvas.getContext('2d') }
 
     // Getters
     getCanvas(){ return this.#canvas; }
@@ -44,38 +61,75 @@ export default class Draw
     convert(...args){ return args.map(val => parseInt(val*this.#unit)) }
 
     //interpreter
-    map(level)
+    map(coorSystem, defaultTile, hero, drawingMap)
     {
-      let coors = []
-      let [x, y] = [0,0]
-      const defaultTile = level[1]
-      const map = level[2]
-      this.coorSystem(level[0])
-      this.background(defaultTile[0],defaultTile[1])
-      for(let coor in map)
-      {
-        coors = coor.split('_')
-        x = parseInt(coors[0])
-        y = parseInt(coors[1])
-        this.cell(x, y, map[coor][0][0], map[coor][0][1])
-        this.sprite(map[coor][1][0], x, y, map[coor][1][1])
-      }
-    }
-    
-    
-    //switch
-    sprite(functionName, x, y, param)
-    {
-        switch(functionName)
-        {
-            case 'hero': this.heroe(x, y, param); break;
-            default: return;
-        }
-    }
+        // Draw coordinates system, background
+        this.coorSystem(coorSystem)
+        this.background(defaultTile[0], defaultTile[1])
 
-    simpleSquare(x, y, filledColor, strokedColor=undefined)
+        /* Draw map
+        * This loop iterates through the drawing function
+        * names (and params) as key and coordinates in the object as value.
+        * key:   string -> "functionName;param1;param2;..."
+        * value: Object -> {y1: ['x1','x2','x3:x7',...], y2:[...], ...}
+        */
+        for(let x in drawingMap)
+        {
+            //params[0] drawing function name
+            //params[x] params of the function less x,y
+            const params = x.split(';')
+
+            //Object that contains the coordinates. 
+            const allrows = drawingMap[x]
+
+            /* This loop iterates through the coordinates y
+            * as key and coordinates x as value
+            * key:   string   -> "y"
+            * value: string[] -> ["x1","x2:x4",...]
+            */
+            for(let row in allrows)
+            {
+                //Array of x coordinates
+                const allcols = allrows[row]
+
+                //This loop iterates through the x coordinates array
+                for(let col of allcols)
+                {
+                    //if x coor element is a range of coordinates...
+                    if(/:/.test(col))
+                    {
+                        let i = parseInt(col.split(':')[0])
+                        const lastCol = parseInt(col.split(':')[1])
+
+                        for(i; i<=lastCol;i++)
+                        {
+                            this[params[0]](
+                                i,
+                                parseInt(row),
+                                params[1],
+                                params[2])
+                        }
+                    }
+                    else
+                    {
+                        this[params[0]](
+                            parseInt(col),
+                            parseInt(row),
+                            params[1],
+                            params[2])
+                    }
+                }
+            }
+            this[params[0]](params[1], params[2])
+        }
+
+        //Draw player sprite
+        this[hero[0]]( hero[1], hero[2], hero[3] )
+    }
+        
+    simpleSquare(cx, cy, filledColor, strokedColor=undefined)
     {
-        [x, y] = this.convert(x,y)
+        const [x, y] = this.convert(cx,cy)
         this.#ctx.fillStyle = filledColor
         this.#ctx.fillRect(x, y, this.#unit, this.#unit)
         if(strokedColor !== undefined)
@@ -158,7 +212,7 @@ export default class Draw
      * @param {int} y cordinate y of the cell (in unit)
      * @param {string} direction 'top'||'bottom'||"left"||"right"
      */
-    heroe(x, y, direction) 
+    hero(x, y, direction) 
     {
         //units to px
         const [Cx, Cy, Cr, cr] = this.convert(x+(0.5), y+(0.5), 0.5, 0.25)

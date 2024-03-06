@@ -3,4 +3,22 @@
 .MovesView-container
 {
     @include bar-container(#faa);
+    @include if-landscape
+    {
+        padding: {
+            top:5px;
+            bottom: 5px;
+        };
+    }
+    @include if-portrait
+    {
+        padding: {
+            left:5px;
+            right: 5px;
+        };
+    }
+}
+.MovesView-container > p
+{
+    margin:0; padding:5px;
 }

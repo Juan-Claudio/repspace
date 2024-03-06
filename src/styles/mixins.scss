@@ -28,32 +28,16 @@
 
     @media (orientation: landscape)
     {
-        flex-direction: column;
-        
-        margin: {
-            left: $bar-extern-margin;
-            right: $bar-extern-margin;
-            top: $bar-intern-margin;
-            bottom: $bar-intern-margin;
-        }
-        
-        width: $bar-smaller-size;
-        height: calc(100vh - $bar-extern-margin*2);
+        flex-direction: column;        
+        width: $bar-size;
+        height: fit-content; max-height: 100%;
     }
 
     @media (orientation: portrait)
     {
         flex-direction: row;
-
-        margin: {
-            left: $bar-intern-margin;
-            right: $bar-intern-margin;
-            top: $bar-extern-margin;
-            bottom: $bar-extern-margin;
-        }
-        
-        width: calc(100vw - $bar-extern-margin*2);
-        height: $bar-smaller-size;
+        width: fit-content; max-width: 100%;
+        height: $bar-size;
     }
 }
 

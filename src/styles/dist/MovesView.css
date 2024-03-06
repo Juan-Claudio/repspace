@@ -9,22 +9,33 @@
 @media (orientation: landscape) {
   .MovesView-container {
     flex-direction: column;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    width: 40px;
-    height: calc(100vh - 20px);
+    width: 50px;
+    height: fit-content;
+    max-height: 100%;
   }
 }
 @media (orientation: portrait) {
   .MovesView-container {
     flex-direction: row;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: calc(100vw - 20px);
-    height: 40px;
+    width: fit-content;
+    max-width: 100%;
+    height: 50px;
   }
+}
+@media (orientation: landscape) {
+  .MovesView-container {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
+@media (orientation: portrait) {
+  .MovesView-container {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+.MovesView-container > p {
+  margin: 0;
+  padding: 5px;
 }
