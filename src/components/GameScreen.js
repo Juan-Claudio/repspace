@@ -12,7 +12,6 @@ export default class GameScreen extends React.Component
             this.props.currPosition,
             this.props.currOrientation
         )
-        console.log(this.props.currOrientation)
         
         this.draw.setCanvasById('gameScreen')       
         this.draw.map(
