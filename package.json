@@ -1,6 +1,7 @@
 {
   "name": "repspace",
   "version": "0.1.0",
+  "homepage": "https://www.sabeludia.com/apps/repspace/",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
