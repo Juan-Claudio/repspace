@@ -24,9 +24,7 @@
 .App-bar_container
 {
 	display: flex;
-	//justify-content: center;
-	//align-items: center;
-	margin:0; //padding:5px;
+	margin:0;
 	overflow: auto;
 }
 @media (orientation: landscape)
@@ -34,9 +32,8 @@
 	.App-bar_container
 	{
 		flex-direction: row;
-		//justify-content: space-around;
 		width:$bar-container-size;
-		max-height: calc(100vh - 10px) !important; margin-top: 5px; margin-bottom: 5px;
+		max-height: calc(100% - 10px) !important; margin-top: 5px; margin-bottom: 5px;
 	}
 }
 @media (orientation: portrait)
@@ -44,8 +41,7 @@
 	.App-bar_container
 	{
 		flex-direction: column;
-		//align-items: center;
 		height:$bar-container-size;
-		max-width: calc(100vw - 10px) !important; margin-left: 5px; margin-right: 5px;
+		max-width: calc(100% - 10px) !important; margin-left: 5px; margin-right: 5px;
 	}
 }

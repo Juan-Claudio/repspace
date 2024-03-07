@@ -36,7 +36,7 @@ export default class GameScreen extends React.Component
     {
         return (
             <div className="GameScreen-container">
-                <p>Your screen is too small to play this game sorry.</p>
+                <p>Your screen is too small to play this game, sorry.<br />If possible, please rotate your device to landscape mode.</p>
                 <canvas id="gameScreen" width="864" height="448"></canvas>
             </div>
         )
